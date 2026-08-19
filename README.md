@@ -1,3 +1,20 @@
+> **Fork.** This is [gdamore/proxima5](https://github.com/gdamore/proxima5),
+> Apache 2.0, with three changes so it can run in a browser:
+>
+> - **tcell v1 → v2.** The screen that draws to WebAssembly (`wscreen.go`)
+>   exists only in v2. Mechanical: none of v2 breaking changes — `Style` no
+>   longer numeric, the mouse event changes — touch anything the game uses.
+> - **The game is a package, not a command.** A `main` package cannot be
+>   imported. `main.go` moved to `cmd/proxima5`, so the standalone binary
+>   still builds and plays exactly as before.
+> - **`Game.Init` accepts a screen.** It used to call `tcell.NewScreen`
+>   itself; `NewGame(screen)` hands it one instead, falling back to making
+>   its own when given nil. In a page the screen is one of several, already
+>   bound to a terminal by whatever opened the window.
+>
+> Nothing else was touched — the sprites, levels, collision and generated
+> assets are as they were. Changed spots are marked `CHANGED from upstream`.
+
 
 ESCAPE FROM PROXIMA 5
 ---------------------

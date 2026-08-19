@@ -1,6 +1,6 @@
 // Level data file
 // Generated automatically, do not edit!
-package main
+package proxima
 
 func init() {
 	RegisterLevelGobZ([]byte{

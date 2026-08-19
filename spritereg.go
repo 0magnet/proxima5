@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package proxima
 
 import (
 	"bytes"
@@ -22,7 +22,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gdamore/tcell"
+	"github.com/gdamore/tcell/v2"
 )
 
 var spriteData map[string]*SpriteData

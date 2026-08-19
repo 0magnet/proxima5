@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package proxima
 
 import (
 	"errors"
 	"fmt"
-	"github.com/gdamore/tcell"
-	"github.com/gdamore/tcell/views"
+	"github.com/gdamore/tcell/v2"
+	"github.com/gdamore/tcell/v2/views"
 	"sync"
 	"time"
 )
@@ -47,16 +47,22 @@ type Game struct {
 
 func (g *Game) Init() error {
 	g.lives = 5
-	if screen, err := tcell.NewScreen(); err != nil {
-		return err
-	} else if err = screen.Init(); err != nil {
-		return err
-	} else {
-		screen.SetStyle(tcell.StyleDefault.
-			Background(tcell.ColorBlack).
-			Foreground(tcell.ColorWhite))
+	// CHANGED from upstream: the screen may be supplied by the caller.
+	// Compiled to WebAssembly it is one of several already initialised and
+	// bound to a terminal, so this cannot be the thing that creates it.
+	if g.screen == nil {
+		screen, err := tcell.NewScreen()
+		if err != nil {
+			return err
+		}
+		if err = screen.Init(); err != nil {
+			return err
+		}
 		g.screen = screen
 	}
+	g.screen.SetStyle(tcell.StyleDefault.
+		Background(tcell.ColorBlack).
+		Foreground(tcell.ColorWhite))
 
 	// XXX: Add a main screen
 	g.screen.EnableMouse()
@@ -250,4 +256,14 @@ func (g *Game) EventPoller() {
 		case g.eventq <- ev:
 		}
 	}
+}
+
+// NewGame returns a game that draws to screen, which must already be
+// initialised.
+//
+// ADDED for this fork. The package used to be a command, so the only way in
+// was main; running it in a browser window means handing it a screen that
+// something else owns.
+func NewGame(screen tcell.Screen) *Game {
+	return &Game{screen: screen}
 }

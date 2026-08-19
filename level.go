@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package proxima
 
 import (
 	"math/rand"
 	"time"
 
-	"github.com/gdamore/tcell"
-	"github.com/gdamore/tcell/views"
+	"github.com/gdamore/tcell/v2"
+	"github.com/gdamore/tcell/v2/views"
 )
 
 type Level struct {

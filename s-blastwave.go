@@ -1,6 +1,6 @@
 // Sprite data file
 // Generated automatically, do not edit!
-package main
+package proxima
 
 func init() {
 	RegisterSpriteGobZ([]byte{

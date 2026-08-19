@@ -17,6 +17,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/0magnet/proxima5"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -46,7 +47,7 @@ func main() {
 	} else {
 		log.SetOutput(ioutil.Discard)
 	}
-	game := &Game{}
+	game := proxima.NewGame(nil)
 	if err := game.Init(); err != nil {
 		fmt.Printf("Failed to initialize game: %v\n", err)
 		os.Exit(1)
