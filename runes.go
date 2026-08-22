@@ -15,7 +15,7 @@
 package proxima
 
 import (
-	"github.com/gdamore/tcell/v2"
+	"github.com/gdamore/tcell/v3"
 )
 
 // RegisterFallbacks registers the UTF-8 runes we use in this game with

@@ -18,8 +18,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/gdamore/tcell/v2"
-	"github.com/gdamore/tcell/v2/views"
+	"github.com/0magnet/proxima5/internal/views"
+	"github.com/gdamore/tcell/v3"
 )
 
 type Level struct {
