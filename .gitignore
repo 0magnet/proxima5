@@ -1,6 +1,7 @@
-#proxima5 binaries
-mkassets
-proxima5
+# proxima5 binaries, anchored to the repo root so they do not also match the
+# cmd/proxima5/ source directory
+/mkassets
+/proxima5
 
 # Binaries for programs and plugins
 *.exe
