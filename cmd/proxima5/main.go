@@ -17,7 +17,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/0magnet/proxima5"
+	proxima "github.com/0magnet/proxima5/v2"
 	"io/ioutil"
 	"log"
 	"math/rand"
