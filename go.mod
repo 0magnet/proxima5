@@ -3,7 +3,7 @@ module github.com/0magnet/proxima5
 go 1.26.0
 
 require (
-	github.com/gdamore/tcell/v3 v3.4.2
+	github.com/gdamore/tcell/v3 v3.5.0
 	github.com/rivo/uniseg v0.4.7
 )
 
